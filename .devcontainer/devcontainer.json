@@ -18,6 +18,9 @@
 				"mongodb.mongodb-vscode"
 			]
 		}
+	},
+	"features": {
+		"ghcr.io/devcontainer-config/features/dot-config:4": {}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
