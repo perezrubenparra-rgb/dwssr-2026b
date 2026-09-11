@@ -1,4 +1,4 @@
-![Pleca Itgam](/.github/assets/pleca_itgam.jpg)
+![Pleca Itgam](.github/assests/pleca_itgam.jpg)
 # 🌐 Desarrollo de Aplicaciones Web Server Site Rendering 
 Proyecto de la materia de Desarrollo Web Server Site Rendering
 # 🚀Competencias a desarrollar
