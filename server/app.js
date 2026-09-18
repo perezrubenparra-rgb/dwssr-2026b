@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //CONFIGURACIONDE LA CARPETA DE ARCHIVOS ESTATICOS
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..','public')));
 
 //REGISTRAMOS RUTAS
 app.use('/', indexRouter);
