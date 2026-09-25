@@ -6,7 +6,7 @@
 
 //var app = require('../app'); esta es la infraestructura vieja 
 
-import app from ('../app');
+import app from '../app.js';
 //importando debug
 import createDebug from "debug";
 //var debug = require('debug')('dwssr-2026b:server'); antigua sintaxis
