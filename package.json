@@ -6,8 +6,11 @@
   "type": "module",
   
   "scripts": {
-    "start": "DEBUG=dwssr-2026b:* node ./server/bin/www",
+    "start": "node ./server/bin/www.js",
+    "dev": "DEBUG=dwssr-2026b:* node ./server/bin/www.js",
     "greet": "echo 'Hola mundo' "
+
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

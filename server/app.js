@@ -28,11 +28,16 @@ import usersRouter from './routes/users.js';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 
+//importanddo biblioteca  de debug
+import createDebug from "debug";
+const debug = createDebug('dwssr-2026b:app.js');
+
 //creando las vaariables 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 //CREAR LA APLICACION EXPRESS
+debug('🔨 icreando backend');
 var app = express();
 
 // CONFIGURA EL MOTOR DE VISTAS
@@ -46,9 +51,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //CONFIGURACIONDE LA CARPETA DE ARCHIVOS ESTATICOS
+debug('🖥️ creando servidor de archivos estaticos');
 app.use(express.static(path.join(__dirname, '..','public')));
 
 //REGISTRAMOS RUTAS
+debug('🚌 registrando rutas');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

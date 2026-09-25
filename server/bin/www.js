@@ -16,6 +16,7 @@ import http from 'node:http';
 
 //Creacion del objeto debug
 const debug = createDebug('dwssr-2026b:server');
+
 //var http = require('http'); este es la vieja sintaxis 
 
 /**
