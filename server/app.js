@@ -20,9 +20,9 @@ import logger from 'morgan';
 
 // SE IMPORTN LAS RUTAS DE LA APLICACION
 //var indexRouter = require('./routes/index');
-import indexRouter from './routes/index.js';
+import indexRouter from '#routes/index.js';
 //var usersRouter = require('./routes/users');
-import usersRouter from './routes/users.js';
+import usersRouter from '#routes/users.js';
 
 //import para crear Dirname
 import { fileURLToPath } from 'node:url';
