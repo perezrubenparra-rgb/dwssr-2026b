@@ -1,6 +1,5 @@
-//IMPORTANDO LOS ESTILOS DE LA PAGINA
-import './styles/main.css';
+//Importando los estilos de la página 
+import './styles/main.css'
 
-//imprimiendo un mensaje en la consola
-console.log(" 🥳 VITE ⚡ + EXPRESS 🚂WORKING!!");
- 
+//Imprimiendo en consola 
+console.log("🎉VITE ⚡+ EXPRESS 🚂 Working!!")

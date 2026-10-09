@@ -1,9 +1,9 @@
 //Biblioteca dile stream
 import fs from 'node:fs'
 //Biblioteca de rutas
-import path, { dirname } from 'node:path'
+import path from 'node:path'
 import { fileURLToPath } from 'node:url';
-import{dirname} from 'node:path'
+import { dirname } from 'node:path';
 //Creando variables de rutas
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -61,9 +61,8 @@ if(mainEntry.css){
 })
 
 }
-
 //JS files
-tags += `<script type="module" src="/${mainEntry.file}" defer></script>`;
+tags += `<script type="module" src="/${mainEntry.file}"defer></script>`;
 
 return tags;
 }
@@ -76,3 +75,5 @@ export function registerViteHelper(hbs){
     return new hbs.SafeString(viteAssets());
   });
 }
+
+
