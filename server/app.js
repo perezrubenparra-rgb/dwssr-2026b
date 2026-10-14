@@ -27,7 +27,7 @@ import hbs from 'hbs'
 const debug=createDebug('desarrollo-de-aplicaciones-ssr-2026b:app');
 //Creando variables de rutas
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const _dirname = dirname(_filename);
 
 //Se crea la aplicación Express
 debug("🔨Creando backend");
@@ -62,7 +62,8 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+
+app.use(function(err, req, res, _next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -74,4 +75,3 @@ app.use(function(err, req, res, next) {
 
 //module.exports = app;
 export default app;
-
