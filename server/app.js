@@ -27,7 +27,7 @@ import hbs from 'hbs'
 const debug=createDebug('desarrollo-de-aplicaciones-ssr-2026b:app');
 //Creando variables de rutas
 const __filename = fileURLToPath(import.meta.url);
-const _dirname = dirname(_filename);
+const __dirname = dirname(__filename);
 
 //Se crea la aplicación Express
 debug("🔨Creando backend");

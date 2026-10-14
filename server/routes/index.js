@@ -9,7 +9,7 @@ router.get('/', function(req, res, _next) {
   counter++;
   numbers.push(counter);
   res.render('index', { 
-    title: 'Bruno Reyes Vázquez',
+    title: 'Parra Perez Ruben',
     counter,
     numbers
   });
