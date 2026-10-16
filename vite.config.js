@@ -1,43 +1,46 @@
-//Importando configurador de Vite
-import {defineConfig} from 'vite';
-//Importando un admin de rutas 
-import {resolve} from 'node:path';
-// importando tailwindcss
-import tailwindcss from '@tailwindcss/vite';
-//Imports para crear dirname
+//importando el condigurador de vite
+import {defineConfig} from "vite"
+
+//
+import tailwindcss from '@tailwindcss/vite'
+
+//imports para crear Dirname
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
-//Creando las variables de ruta 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+//creando las variables de rutas
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+//importando el administrador de rutas de node
+import {resolve} from "node:path"
 
 export default defineConfig({
-    //Directorio raíz de los archivos fuente del frontend
-    root: 'src',
-    //agentando a vite el plugin de tailwindcss
+    //directorio raiz de los archivos fuente del front-end
+    root: "src",
+    //configurando un servidor de desarrollo
+    //agregando a vite pliging de tailwindcss
     plugins: [tailwindcss()],
-    //Configurando un servidor de desarrollo 
     server: {
-        //Puerto de escucha
+        //pueto de listening
         port: 5173,
         //Rigidez del puerto
-        strict: true,
+        strict: true
     },
-    //Configurando el Build 
-    build:{
-        //Directorio de salida del js para producción
-        outDir: '../dist',
-        //Asegurando limpieza del folder de producción 
+    //configurando el build
+    build: {
+        //Directorio de salida del js para produccion
+        outDir: "../dist",
+        //asegurando limpieza del folder de produccion
         emptyOutDir: true,
-        //Generar manifiesto para el servidor
+        //generar manifiesto para el servidor
         manifest: true,
-        //Opciones de Empaquetado
+        //opciones de empaquetado
         rollupOptions: {
-            input:{
-                main: resolve(__dirname, 'src/main.js')
+            input: {
+                main: resolve(__dirname, "src/main.js"),
             }
         }
     },
-    //Configuración para el desarrollo
+    //configuracion para el desarrollo 
     publicDir: false
 })
