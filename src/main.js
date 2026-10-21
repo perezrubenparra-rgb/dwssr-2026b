@@ -5,7 +5,3 @@ import './styles/main.css'
 console.log("🎉VITE ⚡+ EXPRESS 🚂 Working!!")
 
 
-const mensaje = "Hola Ruben";
-console.log(mensaje);
-
-const prueba = "Hola";
