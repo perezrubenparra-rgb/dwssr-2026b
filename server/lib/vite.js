@@ -1,9 +1,7 @@
 //Biblioteca dile stream
 import fs from 'node:fs'
-//Biblioteca de rutas
-//import path from 'node:path'
 import { fileURLToPath } from 'node:url';
-import { dirname, path } from 'node:path';
+import path from 'node:path';
 
 //importando debug
 import createDebug from "debug";
@@ -14,7 +12,7 @@ const debug = createDebug('dwssr-2026b:server');
 
 //Creando variables de rutas
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 /*
 *Helper para Handlebars que genera las etiquetas de Vite
 *EN DESARROLLO: Conecta al servidor de desarrollo de Vite
@@ -83,5 +81,4 @@ export function registerViteHelper(hbs){
      new hbs.SafeString(viteAssets())
   );
 }
-
 
