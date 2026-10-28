@@ -1,6 +1,6 @@
 {
   // Tamaño de la fuente del editor (px)
-  "editor.fontSize": 25,
+  "editor.fontSize": 18,
 
   // Tamaño de la fuente de la terminal integrada (px)
   "terminal.integrated.fontSize": 20,
