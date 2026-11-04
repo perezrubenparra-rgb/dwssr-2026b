@@ -28,7 +28,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Crear la aplicacion express
-debug('🔨 Creando backend');
+//debug('🔨 Creando backend');
+logger.info('🔨 Creando backend');
 const app = express();
 
 // Configurar el motor de vistas con hbs
@@ -61,13 +62,15 @@ debug('🔨 Creando servidor de Archivos Estáticos');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Registramos las rutas de la aplicacion
-debug('🛣️ Registrando rutas');
+//debug('🛣️ Registrando rutas');
+logger.info('🛣️ Registrando rutas');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // Capturamos errores 404 y los enviamos al manejador de errores
 app.use((req, res, next) => {
   next(createError(404));
+  
 });
 
 // Manejador de errores
