@@ -1,79 +1,87 @@
-// Funcion para manejar errores en la aplicacion
+//Función para manejar errores de la aplicación
 import createError from 'http-errors';
-// Importar el framework express
+//Importar el framework Express
 import express from 'express';
-// Importa modulos para manejar rutas
+//Importa módulos para manejar rutas
 import path, { dirname } from 'node:path';
-// Importa modulos para manejar cookies
+//Importar módulos para manejar cookis
 import cookieParser from 'cookie-parser';
-// Importa modulos para manejar logs
+//Importar módulos para manejar logs
 import morgan from 'morgan';
-// Importando biblioteca de debug
-import createDebug from 'debug';
-// Imports para crear Dirname
+//Importando biblioteca de debug 👍
+  //import createDebug from 'debug';
+//Imports para crear dirname 
 import { fileURLToPath } from 'node:url';
-// Importando el template engine Handlebars
-import hbs from 'hbs';
-// Importar las rutas de la aplicacion
+//Importando el template engine handlebars 
+import hbs from 'hbs'
+
+
+//Se importan las rutas de la aplicación 
+
 import indexRouter from '#routes/index.js';
-import { usersRouter } from '#routes/users.js';
-// Importando el registrador del helper
-import { registerViteHelper } from './lib/vite.js';
-// Importando la configuracion de winston logger
+ 
+import usersRouter from '#routes/users.js';
+//Importando el registrador de helper
+import {registerViteHelper} from './lib/vite.js'
+//importando la función de configuración de hbs
+import configureHandlebars from './lib/handlebars.js';
+//Importando la configuracion de Winston logger
 import logger from './lib/winston.js';
 
-// Creacion del objeto Debug
-const debug = createDebug('dwssr-2026b:server');
+//Creación del objeto debug 👍
+  //const debug=createDebug('desarrollo-de-aplicaciones-ssr-2026b:app');
+
+//Creando variables de rutas
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Crear la aplicacion express
-//debug('🔨 Creando backend');
-logger.info('🔨 Creando backend');
+//Se crea la aplicación Express
+//debug('🔨Creando backend');
+logger.info("🔨Creando backend")
 const app = express();
 
-// Configurar el motor de vistas con hbs
+// Configuración de la vista del motor de plantillas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-// Registro Helper
+//Registro helper
 registerViteHelper(hbs);
+// Configurar el motor de vistas con hbs
+configureHandlebars(app)
 
-// Configurar middlewares de la aplicacion
-app.use(morgan('dev'));
+//Configuración de middlewares para manejar solicitudes HTTP
 app.use(
-  morgan('dev', {
-    stream: {
-      write: (msg) => logger.info(msg.trim()),
-    },
+  morgan('dev',{
+    stream : {
+      write:(msg)=>logger.info(msg.trim())
+     }
   }),
 );
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Archivos estaticos para produccion
-if (process.env.NODE_ENV === 'production') {
+//Archivos estáticos para producción
+if(process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'dist')));
 }
-
-// Configurar la carpeta de archivos estaticos
-debug('🔨 Creando servidor de Archivos Estáticos');
+//Configuración de la carpeta pública para servir archivos estáticos
+//debug("🔨 Creando servidor de archivos estáticos");
+logger.info('🔨 Creando servidor de archivos estáticos');
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Registramos las rutas de la aplicacion
-//debug('🛣️ Registrando rutas');
-logger.info('🛣️ Registrando rutas');
+//Registramos las rutas de la aplicación
+//debug("🛣️Registrando rutas");
+logger.info('🛣️Registrando rutas')
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// Capturamos errores 404 y los enviamos al manejador de errores
+// catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
-  
 });
 
-// Manejador de errores
+// error handler
+
 app.use((err, req, res, _next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -84,4 +92,14 @@ app.use((err, req, res, _next) => {
   res.render('error');
 });
 
+//Ejemplo de código inalcanzable
+//(()=>{
+//  let age = 10;
+//  return age
+//  if (age == 10){
+//    console.log("Codigo")
+//  }
+// })
+
+//module.exports = app;
 export default app;

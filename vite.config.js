@@ -24,7 +24,13 @@ export default defineConfig({
         //pueto de listening
         port: 5173,
         //Rigidez del puerto
-        strict: true
+        strict: true,
+        //Abrir la aplicación SSR desde la URL principal de Vite.
+        proxy: {
+            '^/$': {
+                target: `http://localhost:${process.env.PORT || 3000}`,
+            },
+        },
     },
     //configurando el build
     build: {
